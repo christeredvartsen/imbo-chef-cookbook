@@ -9,15 +9,15 @@
   package p
 end
 
-execute "download-imbo" do
-  # Cwd File.dirname(node["imbo"]["dir"])
-  # command "git clone git://github.com/imbo/imbo.git -o 0.1.0 #{File.basename(node["imbo"]["dir"])}"
+# execute "download-imbo" do
+# Cwd File.dirname(node["imbo"]["dir"])
+# command "git clone git://github.com/imbo/imbo.git -o 0.1.0 #{File.basename(node["imbo"]["dir"])}"
+# end
 
-  git node["imbo"]["dir"] do
-    repository "git://github.com/imbo/imbo.git"
-    revision node["imbo"]["version"]
-    action :sync
-  end
+git node["imbo"]["dir"] do
+  repository "git://github.com/imbo/imbo.git"
+  revision node["imbo"]["version"]
+  action :sync
 end
 
 execute "install-dependencies" do
