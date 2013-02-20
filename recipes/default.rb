@@ -10,8 +10,14 @@
 end
 
 execute "download-imbo" do
-  Cwd File.dirname(node["imbo"]["dir"])
-  command "git clone git://github.com/imbo/imbo.git -o 0.1.0 #{File.basename(node["imbo"]["dir"])}"
+  # Cwd File.dirname(node["imbo"]["dir"])
+  # command "git clone git://github.com/imbo/imbo.git -o 0.1.0 #{File.basename(node["imbo"]["dir"])}"
+
+  git node["imbo"]["dir"] do
+    repository "git@github.com:imbo/imbo.git"
+    revision node["imbo"]["version"]
+    action :sync
+  end
 end
 
 execute "install-dependencies" do
