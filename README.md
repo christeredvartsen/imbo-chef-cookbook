@@ -2,6 +2,7 @@ Imbo Cookbook
 =============
 This cookbook installs and configures [Imbo](http://www.imbo-project.org/).
 
+
 Requirements
 ------------
 
